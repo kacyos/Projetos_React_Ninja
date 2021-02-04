@@ -14,13 +14,18 @@ class App extends Component {
     };
   }
 
+  getGitHubApiUrl(username, type) {
+    const internalUser = username ? `${username}` : '';
+    const internalType = type ? `/${type}` : '';
+    return `https://api.github.com/users/${internalUser}${internalType}`;
+  }
+
   handleSearch(e) {
     const value = e.target.value;
     const keyCode = e.which || e.keyCode;
     const Enter = 13;
     if (keyCode === Enter) {
-      axios.get(`https://api.github.com/users/${value}`).then((result) => {
-        console.log(result);
+      axios.get(this.getGitHubApiUrl(value)).then((result) => {
         this.setState({
           userInfo: {
             username: result.data.name,
@@ -30,6 +35,8 @@ class App extends Component {
             followers: result.data.followers,
             following: result.data.following,
           },
+          repos: [],
+          starred: [],
         });
       });
     }
@@ -38,19 +45,16 @@ class App extends Component {
   getRepos(type) {
     return (e) => {
       const username = this.state.userInfo.login;
-      console.log(username);
-      axios
-        .get(`https://api.github.com/user/${username}/${type}`)
-        .then((result) => {
-          this.setState({
-            [type]: result.data.map((repo) => {
-              return {
-                name: repo.name,
-                link: repo.html_url,
-              };
-            }),
-          });
+      axios.get(this.getGitHubApiUrl(username, type)).then((result) => {
+        this.setState({
+          [type]: result.data.map((repo) => {
+            return {
+              name: repo.name,
+              link: repo.html_url,
+            };
+          }),
         });
+      });
     };
   }
 
