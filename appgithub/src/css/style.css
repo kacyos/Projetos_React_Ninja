@@ -1,0 +1,94 @@
+body {
+  background: rgb(39, 37, 41);
+  background: linear-gradient(
+    148deg,
+    rgba(39, 37, 41, 1) 5%,
+    rgba(107, 75, 139, 1) 52%,
+    rgba(128, 0, 255, 1) 86%
+  );
+  background-repeat: no-repeat;
+  background-size: 100%;
+  height: 100vh;
+  background-attachment: fixed;
+}
+
+.search {
+  display: flex;
+  padding: 40px;
+  justify-content: center;
+  height: 30px;
+}
+
+.search input {
+  width: 60%;
+  border-radius: 4px;
+}
+
+.user-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.user-info img {
+  width: 20%;
+  height: 20%;
+  border-radius: 50%;
+  margin: auto;
+}
+
+.user-name {
+  text-align: center;
+  color: rgb(209, 209, 209);
+}
+
+/*a:link {
+  text-decoration: none;
+}*/
+
+a:visited {
+  color: rgb(0, 0, 0);
+}
+
+.actions {
+  text-align: center;
+  margin: 20px auto;
+}
+
+.actions button {
+  margin: auto 25px;
+  width: 120px;
+  height: 50px;
+  color: #fff;
+  border: none;
+  outline: none;
+  background-color: rgb(2, 2, 75);
+  border-radius: 7px;
+}
+
+button:hover {
+  cursor: pointer;
+  background-color: rgb(4, 4, 107);
+}
+
+button:active {
+  background-color: rgb(2, 2, 75);
+}
+
+.repos-info {
+  margin: 10px auto;
+  list-style: none;
+  padding: 0;
+}
+
+.repos,
+.starred {
+  margin: 20px auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h2 {
+  color: #fff;
+  text-shadow: 1px 1px black;
+}
