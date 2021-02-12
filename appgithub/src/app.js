@@ -11,6 +11,7 @@ class App extends Component {
       userInfo: null,
       repos: [],
       starred: [],
+      isFetching: false,
     };
   }
 
@@ -24,26 +25,35 @@ class App extends Component {
     const value = e.target.value;
     const keyCode = e.which || e.keyCode;
     const Enter = 13;
+
     if (keyCode === Enter) {
-      axios.get(this.getGitHubApiUrl(value)).then((result) => {
-        this.setState({
-          userInfo: {
-            username: result.data.name,
-            image: result.data.avatar_url,
-            login: result.data.login,
-            repos: result.data.public_repos,
-            followers: result.data.followers,
-            following: result.data.following,
-          },
-          repos: [],
-          starred: [],
+      this.setState({ isFetching: true });
+
+      axios
+        .get(this.getGitHubApiUrl(value))
+        .then((result) => {
+          this.setState({
+            userInfo: {
+              username: result.data.name,
+              image: result.data.avatar_url,
+              login: result.data.login,
+              repos: result.data.public_repos,
+              followers: result.data.followers,
+              following: result.data.following,
+            },
+            repos: [],
+            starred: [],
+          });
+        })
+        .finally(() => {
+          this.setState({ isFetching: false });
         });
-      });
     }
   }
 
   getRepos(type) {
     return (e) => {
+      this.setState({ starred: [], repos: [] });
       const username = this.state.userInfo.login;
       axios.get(this.getGitHubApiUrl(username, type)).then((result) => {
         this.setState({
@@ -64,6 +74,7 @@ class App extends Component {
         userInfo={this.state.userInfo}
         repos={this.state.repos}
         starred={this.state.starred}
+        isFetching={this.state.isFetching}
         handleSearch={(e) => this.handleSearch(e)}
         getRepos={this.getRepos('repos')}
         getStarred={this.getRepos('starred')}
