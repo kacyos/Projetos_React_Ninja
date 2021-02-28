@@ -1,6 +1,6 @@
-'use strict';
+"use strict";
 
-import React, { PropTypes } from 'react';
+import React, { PropTypes } from "react";
 
 const Search = ({ handleSearch, isDisable }) => (
   <div className="search">
@@ -10,7 +10,7 @@ const Search = ({ handleSearch, isDisable }) => (
       onKeyUp={handleSearch}
       disabled={isDisable}
     />
-    <button>Pes</button>
+    <button className="material-icons">person_search</button>
   </div>
 );
 
