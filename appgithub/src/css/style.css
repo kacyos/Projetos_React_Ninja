@@ -3,17 +3,17 @@ body {
   box-sizing: border-box;
   margin: 0;
   background: linear-gradient(
-      148deg,
-      rgba(39, 37, 41, 1) 5%,
-      rgba(107, 75, 139, 1) 52%,
-      rgba(128, 0, 255, 1) 86%
-    );
-    background-repeat: no-repeat;
-    height: 100vh;
-    overflow: auto;
+    148deg,
+    rgba(39, 37, 41, 1) 5%,
+    rgba(107, 75, 139, 1) 52%,
+    rgba(128, 0, 255, 1) 86%
+  );
+  background-repeat: no-repeat;
+  height: 100vh;
+  overflow: auto;
 }
 
-.app {  
+.app {
   display: grid;
   grid-template-columns: 50fr 50fr;
   grid-template-rows: auto;
@@ -78,7 +78,7 @@ body {
 
 .title h1 {
   font-size: 24px;
-  color: #FFF;
+  color: #fff;
   text-shadow: 1px 0 rgb(111, 0, 255);
 }
 
@@ -91,32 +91,31 @@ body {
   font-weight: 400;
 }
 
-.search input:focus{
-  background:rgb(209, 209, 209);
+.search input:focus {
+  background: rgb(209, 209, 209);
   border: 1px solid rgb(128, 0, 255);
-  color:#000;
+  color: #000;
 }
 
 .search button {
   outline: none;
   border: none;
   height: 40px;
-  background:rgb(97, 97, 97);
+  background: rgb(97, 97, 97);
   border-radius: 8px;
-  color: #FFF;  
+  color: #fff;
   font-weight: 400;
   text-shadow: 1px 1px black;
   cursor: pointer;
 }
 
-.search button:hover{
-  background:rgb(85, 85, 85);
+.search button:hover {
+  background: rgb(85, 85, 85);
 }
 
-.search button:active{
-  background:rgb(70, 70, 70);
+.search button:active {
+  background: rgb(70, 70, 70);
 }
-
 
 .user-card img {
   margin-top: 20px;
@@ -136,24 +135,24 @@ body {
 }
 
 .actions button {
-  margin: 30px 10px auto 10px; 
+  margin: 30px 10px auto 10px;
   outline: none;
   border: none;
   height: 40px;
-  background:rgb(97, 97, 97);
+  background: rgb(97, 97, 97);
   border-radius: 8px;
-  color: #FFF;  
+  color: #fff;
   font-weight: 400;
   text-shadow: 1px 1px black;
   cursor: pointer;
 }
 
-.actions button:hover{
-  background:rgb(85, 85, 85);
+.actions button:hover {
+  background: rgb(85, 85, 85);
 }
 
-.actions button:active{
-  background:rgb(70, 70, 70);
+.actions button:active {
+  background: rgb(70, 70, 70);
 }
 
 .starred,
@@ -165,11 +164,12 @@ body {
   height: fit-content;
 }
 
-.starred ul, .repos ul{
+.starred ul,
+.repos ul {
   margin-top: 0;
   margin-bottom: 10px;
   padding: 0 40px;
-  border-radius: 5px;  
+  border-radius: 5px;
 }
 
 .starred li,
@@ -196,24 +196,22 @@ body {
   }
 }
 
-
-
 @media screen and (min-width: 768px) {
   .title img {
     margin-top: 40px;
     width: 300px;
   }
-  
+
   .title h1 {
     font-size: 34px;
   }
-  
+
   .search input {
     height: 30px;
     width: 40vw;
     margin-right: 5px;
   }
-  
+
   .search button {
     height: 30px;
     margin-left: 5px;
@@ -226,15 +224,15 @@ body {
     grid-area: user-img;
     align-items: flex-end;
   }
-  
+
   .card-info {
     display: flex;
-    margin: 40px ;    
+    margin: 40px;
     grid-area: user-info;
     align-items: flex-start;
   }
 
-  .repos-info{
+  .repos-info {
     margin: auto 0;
     padding: 10px;
   }
