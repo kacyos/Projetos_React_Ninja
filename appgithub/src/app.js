@@ -23,10 +23,8 @@ class App extends Component {
 
   handleSearch(e) {
     const value = e.target.value;
-    const keyCode = e.which || e.keyCode;
-    const Enter = 13;
-
-    if (keyCode === Enter) {
+    const keyCode = e.which;
+    if (keyCode === 13) {
       this.setState({ isFetching: true });
       this.setState({ userInfo: null });
       axios

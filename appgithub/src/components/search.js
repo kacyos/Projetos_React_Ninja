@@ -10,7 +10,6 @@ const Search = ({ handleSearch, isDisable }) => (
       onKeyUp={handleSearch}
       disabled={isDisable}
     />
-    <button className="material-icons">person_search</button>
   </div>
 );
 
