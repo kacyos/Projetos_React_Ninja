@@ -4,6 +4,7 @@ import React, { PropTypes } from 'react';
 
 const UserInfo = ({ userInfo }) => (
   <div className="user-info">
+    <div className="user-card">
     <img src={userInfo.image} />
 
     <h1 className="user-name">
@@ -11,12 +12,14 @@ const UserInfo = ({ userInfo }) => (
         {userInfo.username}
       </a>
     </h1>
-
+    </div>
+<div className="card-info">
     <ul className="repos-info">
       <li>Repositórios: {userInfo.repos}</li>
       <li>Seguidores: {userInfo.followers}</li>
       <li>Seguindo: {userInfo.following}</li>
     </ul>
+    </div>
   </div>
 );
 

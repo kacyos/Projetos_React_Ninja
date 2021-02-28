@@ -2,6 +2,7 @@
 
 import React, { PropTypes } from 'react';
 
+import Title from './Title';
 import Search from './search';
 import UserInfo from './userInfo';
 import Actions from './actions';
@@ -18,7 +19,7 @@ const AppContent = ({
 }) => {
   return (
     <div className="app">
-      <h1 className="title">Pesquisa de usuários GitHub</h1>
+      <Title />
       <Search isDisable={isFetching} handleSearch={handleSearch} />
       {isFetching && <div style={{ color: 'red' }}>CARREGANDO...</div>}
       {!!userInfo && <UserInfo userInfo={userInfo} />}

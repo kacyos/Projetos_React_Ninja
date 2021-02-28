@@ -10,6 +10,7 @@ const Search = ({ handleSearch, isDisable }) => (
       onKeyUp={handleSearch}
       disabled={isDisable}
     />
+    <button>Pes</button>
   </div>
 );
 

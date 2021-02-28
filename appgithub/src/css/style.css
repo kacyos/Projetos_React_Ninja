@@ -1,101 +1,171 @@
+html,
 body {
-  background: rgb(39, 37, 41);
+  box-sizing: border-box;
+  margin: 0;
   background: linear-gradient(
-    148deg,
-    rgba(39, 37, 41, 1) 5%,
-    rgba(107, 75, 139, 1) 52%,
-    rgba(128, 0, 255, 1) 86%
-  );
-  background-repeat: no-repeat;
-  background-size: 100%;
-  height: 100vh;
-  background-attachment: fixed;
+      148deg,
+      rgba(39, 37, 41, 1) 5%,
+      rgba(107, 75, 139, 1) 52%,
+      rgba(128, 0, 255, 1) 86%
+    );
+    background-repeat: no-repeat;
+    height: 100vh;
+    overflow: auto;
+}
+
+.app {  
+  display: grid;
+  grid-template-columns: 50fr 50fr;
+  grid-template-rows: auto;
+  grid-template-areas:
+    "title title"
+    "search search"
+    "user user"
+    "buttons buttons"
+    "repos repos";
+}
+
+.user-info {
+  display: grid;
+  grid-template-columns: subgrid;
+  grid-template-rows: subgrid;
+  grid-area: user;
+  grid-template-areas: "user-img user-info";
+  margin: 0;
 }
 
 .title {
-  padding-top: 30px;
-  text-align: center;
-  color: #fff;
-  text-shadow: 3px 2px black;
+  display: flex;
+  grid-area: title;
+  flex-direction: column;
+  margin-top: 20px;
+  align-items: center;
 }
 
 .search {
   display: flex;
-  padding: 40px;
+  grid-area: search;
+  margin-top: 20px;
   justify-content: center;
-  height: 40px;
 }
 
-.search input {
-  width: 70%;
-  border-radius: 4px;
-}
-
-.user-info {
+.user-card {
   display: flex;
+  margin-top: 25px;
   flex-direction: column;
+  align-items: center;
+  grid-area: user-img;
 }
 
-.user-info img {
-  width: 20%;
-  height: 20%;
-  border-radius: 50%;
-  margin: auto;
-}
-
-.user-name {
-  text-align: center;
-  color: rgb(209, 209, 209);
-}
-
-/*a:link {
-  text-decoration: none;
-}*/
-
-a:visited {
-  color: rgb(0, 0, 0);
+.card-info {
+  display: flex;
+  margin: 40px auto;
+  align-items: middle;
+  grid-area: user-info;
 }
 
 .actions {
-  text-align: center;
-  margin: 20px auto;
+  display: flex;
+  flex-direction: row;
+  grid-area: buttons;
+  justify-content: center;
+  margin-top: 10px;
 }
 
-.actions button {
-  margin: auto 25px;
-  width: 120px;
-  height: 50px;
-  color: #fff;
-  border: none;
-  outline: none;
-  background-color: rgb(2, 2, 75);
-  border-radius: 7px;
+.title img {
+  width: 100px;
 }
 
-button:hover {
-  cursor: pointer;
-  background-color: rgb(4, 4, 107);
+.title h1 {
+  font-size: 24px;
 }
 
-button:active {
-  background-color: rgb(2, 2, 75);
+.search input {
+  height: 30px;
+  margin-right: 5px;
+}
+
+.search button {
+  height: 30px;
+  margin-left: 5px;
+}
+
+.user-card img {
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+}
+
+@media screen and (min-width: 768px) {
+  .user-card {
+    display: flex;
+    margin-top: 25px;
+    flex-direction: column;
+    grid-area: user-img;
+    align-items: flex-end;
+  }
+  
+  .card-info {
+    display: flex;
+    margin: 40px ;
+    align-items: flex-start;
+    grid-area: user-info;
+  }
+  .user-card img {
+    height: 250px;
+    width: 250px;
+    margin-right: 40px;
+    border-radius: 50%;
+  }
+
+  .user-card h1 {
+    width: 330px;
+    text-align: center;
+    font-size: 20px;
+  }
+}
+
+.user-card h1 {
+  font-size: 20px;
 }
 
 .repos-info {
-  margin: 10px auto;
   list-style: none;
+  margin: auto;
   padding: 0;
 }
 
-.repos,
-.starred {
-  margin: 20px auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.actions button {
+  margin: auto 5px;
+  outline: none;
+  border: none;
+  height: 40px;
+  background:rgb(97, 97, 97);
+  border-radius: 8px;
+  color: #FFF;  
+  font-weight: 400;
 }
 
-h2 {
-  color: #fff;
-  text-shadow: 1px 1px black;
+.starred,
+.repos {
+  display: flex;
+  flex-direction: column;
+  grid-area: repos;
+  align-items: center;
+  height: fit-content;
+}
+
+.starred ul, .repos ul{
+  margin-top: 0;
+  margin-bottom: 10px;
+  padding: 0 40px;
+  border-radius: 5px;  
+}
+
+.starred li,
+.repos li {
+  line-height: 27px;
+  font-size: 18px;
+  font-weight: 500;
+  list-style: none;
 }

@@ -13,5 +13,5 @@ new WebpackDevServer(webpack(config), {
   if (err) {
     console.log(err);
   }
-  console.log('Ouvindo na porta 3000  🚀');
+  console.log('Ouvindo na porta 3000');
 });
