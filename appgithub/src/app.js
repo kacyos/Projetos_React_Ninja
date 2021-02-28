@@ -23,7 +23,7 @@ class App extends Component {
 
   handleSearch(e) {
     const value = e.target.value;
-    const keyCode = e.which;
+    const keyCode = e.keyCode;
     if (keyCode === 13) {
       this.setState({ isFetching: true });
       this.setState({ userInfo: null });
