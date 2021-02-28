@@ -21,7 +21,7 @@ const AppContent = ({
     <div className="app">
       <Title />
       <Search isDisable={isFetching} handleSearch={handleSearch} />
-      {isFetching && <div style={{ color: 'red' }}>CARREGANDO...</div>}
+      {isFetching && <div className="spinner"></div>}
       {!!userInfo && <UserInfo userInfo={userInfo} />}
       {!!userInfo && <Actions getRepos={getRepos} getStarred={getStarred} />}
 

@@ -28,7 +28,7 @@ class App extends Component {
 
     if (keyCode === Enter) {
       this.setState({ isFetching: true });
-
+      this.setState({ userInfo: null });
       axios
         .get(this.getGitHubApiUrl(value))
         .then((result) => {
